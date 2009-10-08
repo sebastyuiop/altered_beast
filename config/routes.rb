@@ -3,13 +3,13 @@ ActionController::Routing::Routes.draw do |map|
     :controller => "sessions", :action => "create",
     :requirements => { :method => :get }
 
-  map.resources :sites, :moderatorships, :monitorship
+  map.resources :sites, :moderatorships, :monitorships
   
 
   map.resources :forums, :has_many => :posts do |forum|
     forum.resources :topics do |topic|
       topic.resources :posts
-      topic.resource :monitorship
+      topic.resource :monitorships
     end
     forum.resources :posts
   end
